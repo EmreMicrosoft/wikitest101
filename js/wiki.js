@@ -5,29 +5,35 @@ var selectedlang = 0;
 function getWikiContent(title)
 {
 	var xmlHttp = null;
-	var theUrl = "http://" + langArray[selectedlang] + ".wikipedia.org/w/api.php?action=parse&origin=wiki.innovastudios.net&format=json&page=" + title;
-
-
+	var theUrl = "http://" + langArray[selectedlang] + ".wikipedia.org/w/api.php?action=parse&callback=parseResults&format=json&origin=*&page=" + title;
     xhr = new XMLHttpRequest();
+    xhr.onreadystatechange = function() {
+    if (this.readyState == 4 && this.status == 200) {
+       // Typical action to be performed when the document is ready:
+        eval(this.responseText.slice(4));
+    }
+};
     xhr.open( "GET", theUrl, true );
-    xhr.responseType = 'json';
-    xhr.setRequestHeader("Origin", "http://wiki.innovastudios.net");
     xhr.send();
-    document.getElementById("content").innerHtml=xhr.text;
+}
+
+function parseResults(response)
+{
+	document.getElementById("content").innerHTML=response.parse.text["*"];
 }
 
 
-var timeout= null
+var timeout= null;
 
 function startSearch(text)
 {
 	if (timeout == null)
 	{
-		timeout = setTimeout(function(){getWikiContent(text)});
+		timeout = setTimeout(function(){getWikiContent(text)},1500);
 	}
 	else
 	{
 		clearTimeout(timeout);
-		timeout = setTimeout(function(){getWikiContent(text)});
+		timeout = setTimeout(function(){getWikiContent(text)},1500);
 	}
 }
