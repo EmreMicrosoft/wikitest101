@@ -5,7 +5,7 @@ var selectedlang = 0;
 function getWikiContent(title)
 {
 	var xmlHttp = null;
-	var theUrl = "http://" + langArray[selectedlang] + ".wikipedia.org/w/api.php?action=parse&format=json&page=" + title;
+	var theUrl = "http://" + langArray[selectedlang] + ".wikipedia.org/w/api.php?action=parse&origin=wiki.innovastudios.net&format=json&page=" + title;
 
 
     xhr = new XMLHttpRequest();
