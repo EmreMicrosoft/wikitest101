@@ -10,27 +10,34 @@
 
 <div id = "main">
 	<div id= "top">
-		<span>
-			<div id="search"> 
-			<input type="text" id="titlefield"  onkeyup="startSearch(document.getElementById('titlefield').value)" name="title"></div>
-		</span>
-		<span>
+		<div id="bar">
+			<span>
+				<div id="search"> 
+				<input type="text" id="titlefield"  onkeyup="startSearch(document.getElementById('titlefield').value)" name="title"></div>
+			</span>
+			<span>
 				<div id="language">
 					<select id="langselector" onchange="langSelectorChange(document.getElementById('langselector').value)">
-					  <option value="0">Spanish</option>
-					  <option value="1">Hindi</option>
-					  <option value="2">Russian</option>
-					  <option value="3" selected>English</option>
-					  <option value="4">French</option>
-					  <option value="5">Japanese</option>
-					  <option value="6">Nepali</option>
-					  <option value="7">Catalan</option>
-					  <option value="8">Arab</option>
-					  <option value="9">Georgian</option>
+						<option value="0">Spanish</option>
+						<option value="1">Hindi</option>
+						<option value="2">Russian</option>
+						<option value="3" selected>English</option>
+						<option value="4">French</option>
+						<option value="5">Japanese</option>
+						<option value="6">Nepali</option>
+						<option value="7">Catalan</option>
+						<option value="8">Arab</option>
+						<option value="9">Georgian</option>
 					</select>
 				</div>
-			</div>
-		</span>
+			</span>
+			<span>
+				<div id="buttonwrapper" class="searchable">
+					<button id="boton" type="button" onclick="getWikiContent(document.getElementById('titlefield').value)"></button>
+				</div>
+			</span>
+		</div>	
+	</div>	
 	<div id="content"></div>
 </div>
 

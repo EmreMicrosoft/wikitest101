@@ -48,6 +48,34 @@ a {
     margin: 5px;
 }
 
+#boton
+{
+	width: 31px;
+    height: 31px;
+    border-width: 1px;
+    border-style: solid;
+    border-color: rgb(162, 169, 177);
+    border-image: initial;
+    padding: 5px;
+    vertical-align: bottom;
+}
+
+.loading
+{
+	background: url(../img/loading.gif) 0 0;
+	background-size: cover;
+}
+.searchable
+{
+	background: url(../img/search.png) 0 0;
+	background-size: cover;
+}
+
+#buttonwrapper
+{
+	display: inline;
+}
+
 #top
 {
 	text-align: center;

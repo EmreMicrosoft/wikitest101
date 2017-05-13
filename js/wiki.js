@@ -7,10 +7,16 @@ function getWikiContent(title)
 	var xmlHttp = null;
 	var theUrl = "http://" + langArray[selectedlang] + ".wikipedia.org/w/api.php?action=parse&callback=parseResults&format=json&origin=*&page=" + title;
     xhr = new XMLHttpRequest();
+
+    document.getElementById("boton").removeclass("searchable");
+	document.getElementById("boton").addclass("loading");
+
     xhr.onreadystatechange = function() {
     if (this.readyState == 4 && this.status == 200) {
        // Typical action to be performed when the document is ready:
         eval(this.responseText.slice(4));
+        document.getElementById("boton").removeclass("loading");
+		document.getElementById("boton").addclass("searchable");
     }
 };
     xhr.open( "GET", theUrl, true );
@@ -36,6 +42,8 @@ function startSearch(text)
 	if (timeout == null)
 	{
 		timeout = setTimeout(function(){getWikiContent(text)},1500);
+		document.getElementById("boton").removeclass("searchable");
+		document.getElementById("boton").addclass("loading");
 	}
 	else
 	{
