@@ -4,7 +4,7 @@ var selectedlang = 3;
 function getWikiContent(title)
 {
 	var xmlHttp = null;
-	var theUrl = "http://" + langArray[selectedlang] + ".wikipedia.org/w/api.php?action=parse&callback=parseResults&format=json&origin=*&page=" + title;
+	var theUrl = "http://" + langArray[selectedlang] + ".wikipedia.org/w/api.php?action=parse&callback=parseResults&format=json&origin=*&props=externallinks&page=" + title;
     xhr = new XMLHttpRequest();
 
     removeClass(document.getElementsByClassName("boton")[is_mobile], "searchable");
