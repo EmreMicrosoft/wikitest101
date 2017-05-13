@@ -74,5 +74,7 @@ a {
 #search
 {
 	margin: 0 auto;
-	text-align: center;
+    text-align: center;
+    padding-top: 20px;
+    padding-left: 15px; 
 }
