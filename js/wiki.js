@@ -1,3 +1,5 @@
+var langArray = ["es","hi","ru","en","fr","jp","ne","ca","ar","ka"];
+var selectedlang = 3;
 //Makes the ajax query.
 function getWikiContent(title)
 {
@@ -5,16 +7,16 @@ function getWikiContent(title)
 	var theUrl = "http://" + langArray[selectedlang] + ".wikipedia.org/w/api.php?action=parse&callback=parseResults&format=json&origin=*&page=" + title;
     xhr = new XMLHttpRequest();
 
-    removeClass(document.getElementById("boton"), "searchable");
-	addClass(document.getElementById("boton"), "loading");
+    removeClass(document.getElementsByClassName("boton")[is_mobile], "searchable");
+	addClass(document.getElementsByClassName("boton")[is_mobile], "loading");
 
 	//start AJAX query
     xhr.onreadystatechange = function() {
     if (this.readyState == 4 && this.status == 200) {
        // Typical action to be performed when the document is ready:
         eval(this.responseText.slice(4));
-        removeClass(document.getElementById("boton"), "loading");
-		addClass(document.getElementById("boton"), "searchable");
+        removeClass(document.getElementsByClassName("boton")[is_mobile], "loading");
+		addClass(document.getElementsByClassName("boton")[is_mobile], "searchable");
 		timeout = null;
     }
 };
@@ -30,25 +32,43 @@ function parseResults(response)
 		document.getElementById("content").innerHTML=response.parse.text["*"];
 	else
 		document.getElementById("content").innerHTML=response.error.info;
+}
 
 // Changes language from the selector
 function langSelectorChange(key)
 {
  	selectedlang = key;
 }
+var is_mobile = 0;
 
-document.addEventListener("DOMContentLoaded", function(event) 
+function checkIfMobile()
+{
+	var flag = !!navigator.userAgent.match(/iphone|android|blackberry/ig) || false;
+	if (flag) return 1;
+	else return 0;
+}
+
+function togglemenu()
+{
+	if (hasClass(document.getElementById("phonebar"), "hidden"))
+		removeClass(document.getElementById("phonebar"), "hidden");
+	else
+		addClass(document.getElementById("phonebar"), "hidden");
+}
+
+window.onload = function(event) 
 { 
-	var is_mobile = !!navigator.userAgent.match(/iphone|android|blackberry/ig) || false;
+	is_mobile = checkIfMobile();
 	if (is_mobile)
 	{
-		addClass(document.getElementById("phonebar"), "hidden");
+		addClass(document.getElementById("bar"), "hidden");
+		removeClass(document.getElementById("hamburguer"), "hidden");
 	}
 	else
 	{
-		addClass(document.getElementById("bar"), "hidden");
+		addClass(document.getElementById("phonebar"), "hidden");
 	}
-});
+};
 
 var timeout= null;
 
@@ -58,8 +78,8 @@ function startSearch(text)
 	if (timeout == null)
 	{
 		timeout = setTimeout(function(){getWikiContent(text)},1500);
-		removeClass(document.getElementById("boton"),"searchable");
-		addClass(document.getElementById("boton"), "loading");
+		removeClass(document.getElementsByClassName("boton")[is_mobile],"searchable");
+		addClass(document.getElementsByClassName("boton")[is_mobile], "loading");
 	}
 	else
 	{

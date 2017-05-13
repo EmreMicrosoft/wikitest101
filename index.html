@@ -12,12 +12,12 @@
 	<div id= "top">
 		<div id="bar">
 			<span>
-				<div id="search"> 
-				<input type="text" id="titlefield"  onkeyup="startSearch(document.getElementById('titlefield').value)" name="title"></div>
+				<div class="search"> 
+				<input type="text" class="titlefield"  onkeyup="startSearch(document.getElementsByClassName('titlefield')[is_mobile].value)" name="title"></div>
 			</span>
 			<span>
-				<div id="language">
-					<select id="langselector" onchange="langSelectorChange(document.getElementById('langselector').value)">
+				<div class="language">
+					<select class="langselector" onchange="langSelectorChange(document.getElementsByClassName('langselector')[is_mobile].value)">
 						<option value="0">Spanish</option>
 						<option value="1">Hindi</option>
 						<option value="2">Russian</option>
@@ -32,19 +32,21 @@
 				</div>
 			</span>
 			<span>
-				<div id="buttonwrapper">
-					<button id="boton" class="searchable" type="button" onclick="getWikiContent(document.getElementById('titlefield').value)"></button>
+				<div class="buttonwrapper">
+					<button class="boton searchable" type="button" onclick="getWikiContent(document.getElementsByClassName('titlefield')[is_mobile].value)"></button>
 				</div>
 			</span>
-		<div id="phonebar">
+		</div>
+		<div id="hamburguer" class="hidden" onclick="togglemenu()"></div>
+		<div id="phonebar" class="hidden">
 		    <span>
-				<div id="psearch"> 
-				<input type="text" id="titlefield"  onkeyup="startSearch(document.getElementById('titlefield').value)" name="title"></div>
+				<div class="search"> 
+				<input type="text" class="titlefield" name="title" placeholder="Search in Wikipedia"></div>
 			</span>
 			<br>
 			<span>
-				<div id="planguage">
-					<select id="plangselector" onchange="langSelectorChange(document.getElementById('langselector').value)">
+				<div class="language">
+					<select class="langselector" onchange="langSelectorChange(document.getElementsByClassName('langselector')[is_mobile].value)">
 						<option value="0">Spanish</option>
 						<option value="1">Hindi</option>
 						<option value="2">Russian</option>
@@ -60,8 +62,8 @@
 			</span>
 			<br>
 			<span>
-				<div id="pbuttonwrapper">
-					<button id="pboton" class="searchable" type="button" onclick="getWikiContent(document.getElementById('titlefield').value)"></button>
+				<div class="buttonwrapper">
+					<button class="boton searchable" type="button" onclick="getWikiContent(document.getElementsByClassName('titlefield')[is_mobile].value)"></button>
 				</div>
 			</span>
 		</div>	
