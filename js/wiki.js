@@ -26,7 +26,7 @@ function getWikiContent(title)
 
 function parseResults(response)
 {
-	if (undefined != response.parse.text["*"])
+	if (typeof response.parse.text["*"] != 'undefined')
 		document.getElementById("content").innerHTML=response.parse.text["*"];
 	else
 		document.getElementById("content").innerHTML="ERROR";
