@@ -1,0 +1,38 @@
+#toc, .toc, .mw-warning, .toccolours {
+    border: 1px solid #a2a9b1;
+    background-color: #f8f9fa;
+    padding: 5px;
+    font-size: 95%;
+    width: 350px;
+    float: left;
+}
+
+.mw-body-content {
+    position: relative;
+    line-height: 1.6;
+    font-size: 0.875em;
+    z-index: 0;
+}
+.mw-body, .parsoid-body {
+    padding: 1em;
+    background-color: #ffffff;
+    color: #222222;
+    direction: ltr;
+}
+
+html, body {
+    height: 100%;
+    margin: 0;
+    padding: 0;
+    font-family: sans-serif;
+}
+
+a:visited {
+    color: #0b0080;
+}
+
+a {
+    text-decoration: none;
+    color: #0645ad;
+    background: none;
+}

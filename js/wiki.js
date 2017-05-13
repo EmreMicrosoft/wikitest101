@@ -20,6 +20,12 @@ function getWikiContent(title)
 function parseResults(response)
 {
 	document.getElementById("content").innerHTML=response.parse.text["*"];
+	getWikiContent(document.getElementById('titlefield').value);
+}
+
+function langSelectorChange(key)
+{
+ 	selectedlang = key;
 }
 
 

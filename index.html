@@ -11,10 +11,23 @@
 <div id = "main">
 	<div id= "top"></div>
 	<div id= "left">
-		<div id="search"> <input type="text" name="title"></div>
+		<div id="search"> <input type="text" id="titlefield"  onkeyup="startSearch(document.getElementById('titlefield').value)" name="title"></div>
 		<br><br>
-		<div id="language"></div>
-		<div id="enviar"><input type="submit" text="Submit" onclick="getWikiContent(document.getElementById(title).value)"></div>
+		<div id="language">
+			<select id="langselector" onchange="langSelectorChange(document.getElementById('langselector').value)">
+			  <option value="0">Spanish</option>
+			  <option value="1">Hindi</option>
+			  <option value="2">Russian</option>
+			  <option value="3" selected>English</option>
+			  <option value="4">French</option>
+			  <option value="5">Japanese</option>
+			  <option value="6">Nepali</option>
+			  <option value="7">Catalan</option>
+			  <option value="8">Arab</option>
+			  <option value="9">Georgian</option>
+
+			</select>
+		</div>
 	</div>
 	<div id="content"></div>
 </div>
