@@ -121,6 +121,10 @@ button.searchable
 	display: inline;
 }
 
+.hidden
+{
+	display: none;
+}
 
 #langselector
 {
