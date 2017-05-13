@@ -1,6 +1,6 @@
 var langArray = ["es","hi","ru","en","fr", "jp", "ne","ca" ,"ar", "ka"];
 var langValue = ["Spanish", "Hindi", "Russian", "English", "French", "Japanese", "Nepali", "Catalan", "Arab", "Georgian"];
-var selectedlang = 0;
+var selectedlang = 3;
 
 function getWikiContent(title)
 {
