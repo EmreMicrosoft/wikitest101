@@ -60,6 +60,19 @@ a {
 
 #titlefield
 {
+	
+}
+
+#search
+{
+	margin: 0 auto;
+    text-align: center;
+    padding-top: 20px;
+    padding-left: 15px; 
+}
+
+#langselector
+{
 	background-color: rgb(248, 249, 250);
     font-size: 95%;
     width: 350px;
@@ -69,12 +82,4 @@ a {
     border-color: rgb(162, 169, 177);
     border-image: initial;
     padding: 5px;
-}
-
-#search
-{
-	margin: 0 auto;
-    text-align: center;
-    padding-top: 20px;
-    padding-left: 15px; 
 }
