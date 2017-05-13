@@ -52,31 +52,53 @@ a {
     margin: 5px;
 }
 
-#left
+#top
 {
+	text-align: center;
 	background-color: #f4f4f4;
 	margin-bottom: 10px;
+	height: 55px;
+    padding-top: 20px;
 }
 
 #titlefield
 {
-	
+	background-color: rgb(248, 249, 250);
+    font-size: 95%;
+    width: 350px;
+    border-width: 1px;
+    border-style: solid;
+    border-color: rgb(162, 169, 177);
+    border-image: initial;
+    padding: 5px;
+    height: 19px;
+}
+
+#content
+{
+	margin-left: 16px;
+    margin: 0 auto;
 }
 
 #search
 {
 	margin: 0 auto;
-    text-align: center;
     padding-top: 20px;
     padding-left: 15px; 
+    display: inline;
 }
+
+#language
+{
+	display: inline;
+}
+
 
 #langselector
 {
 	background-color: rgb(248, 249, 250);
     font-size: 95%;
-    width: 350px;
-    float: left;
+    width: 220px;
     border-width: 1px;
     border-style: solid;
     border-color: rgb(162, 169, 177);
