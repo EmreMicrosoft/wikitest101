@@ -17,6 +17,7 @@ function getWikiContent(title)
         eval(this.responseText.slice(4));
         removeClass(document.getElementById("boton"), "loading");
 		addClass(document.getElementById("boton"), "searchable");
+		timeout = null;
     }
 };
     xhr.open( "GET", theUrl, true );
