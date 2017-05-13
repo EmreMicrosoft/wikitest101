@@ -26,8 +26,10 @@ function getWikiContent(title)
 
 function parseResults(response)
 {
-	document.getElementById("content").innerHTML=response.parse.text["*"];
-	getWikiContent(document.getElementById('titlefield').value);
+	if (undefined != response.parse.text["*"])
+		document.getElementById("content").innerHTML=response.parse.text["*"];
+	else
+		document.getElementById("content").innerHTML="ERROR";
 }
 
 function langSelectorChange(key)
