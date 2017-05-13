@@ -36,3 +36,9 @@ a {
     color: #0645ad;
     background: none;
 }
+
+.infobox
+{
+	border: 1px solid #222222;
+    float: left;
+}
