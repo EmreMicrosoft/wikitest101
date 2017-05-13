@@ -77,7 +77,10 @@ a {
 #content
 {
 	margin-left: 16px;
+	margin-right: 16px;
     margin: 0 auto;
+    padding-right: 10px;
+    padding-left:10px;
 }
 
 #search
