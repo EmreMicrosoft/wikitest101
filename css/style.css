@@ -39,6 +39,14 @@ a {
 
 .infobox
 {
-	border: 1px solid #222222;
+	background-color: rgb(248, 249, 250);
+    font-size: 95%;
+    width: 350px;
+    float: left;
+    border-width: 1px;
+    border-style: solid;
+    border-color: rgb(162, 169, 177);
+    border-image: initial;
+    padding: 5px;
     float: left;
 }
