@@ -58,14 +58,15 @@ a {
     border-image: initial;
     padding: 5px;
     vertical-align: bottom;
+
 }
 
-.loading
+button.loading
 {
 	background: url(../img/loading.gif) 0 0;
 	background-size: cover;
 }
-.searchable
+button.searchable
 {
 	background: url(../img/search.png) 0 0;
 	background-size: cover;

@@ -8,15 +8,15 @@ function getWikiContent(title)
 	var theUrl = "http://" + langArray[selectedlang] + ".wikipedia.org/w/api.php?action=parse&callback=parseResults&format=json&origin=*&page=" + title;
     xhr = new XMLHttpRequest();
 
-    document.getElementById("boton").removeclass("searchable");
-	document.getElementById("boton").addclass("loading");
+    removeClass(document.getElementById("boton"), "searchable");
+	addClass(document.getElementById("boton"), "loading");
 
     xhr.onreadystatechange = function() {
     if (this.readyState == 4 && this.status == 200) {
        // Typical action to be performed when the document is ready:
         eval(this.responseText.slice(4));
-        document.getElementById("boton").removeclass("loading");
-		document.getElementById("boton").addclass("searchable");
+        removeClass(document.getElementById("boton"), "loading");
+		addClass(document.getElementById("boton"), "searchable");
     }
 };
     xhr.open( "GET", theUrl, true );
@@ -42,12 +42,34 @@ function startSearch(text)
 	if (timeout == null)
 	{
 		timeout = setTimeout(function(){getWikiContent(text)},1500);
-		document.getElementById("boton").removeclass("searchable");
-		document.getElementById("boton").addclass("loading");
+		removeClass(document.getElementById("boton"),"searchable");
+		addClass(document.getElementById("boton"), "loading");
 	}
 	else
 	{
 		clearTimeout(timeout);
 		timeout = setTimeout(function(){getWikiContent(text)},1500);
 	}
+}
+
+function hasClass(el, className) {
+  if (el.classList)
+    return el.classList.contains(className)
+  else
+    return !!el.className.match(new RegExp('(\\s|^)' + className + '(\\s|$)'))
+}
+
+function addClass(el, className) {
+  if (el.classList)
+    el.classList.add(className)
+  else if (!hasClass(el, className)) el.className += " " + className
+}
+
+function removeClass(el, className) {
+  if (el.classList)
+    el.classList.remove(className)
+  else if (hasClass(el, className)) {
+    var reg = new RegExp('(\\s|^)' + className + '(\\s|$)')
+    el.className=el.className.replace(reg, ' ')
+  }
 }
